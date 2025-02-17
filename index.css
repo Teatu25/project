@@ -1,0 +1,98 @@
+.back {
+    background-image: url('/image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Half of the viewport width */
+    height: 95vh; /* Half of the viewport height */
+}
+
+header{
+    position: fixed;
+    width:100%;
+}
+
+.head-text{
+    padding: 20vh;
+    padding-right: 70vh;
+    padding-left: 10vh;
+    padding-bottom: 30vh;
+}
+.head-text a{
+    background-color: orange;
+}
+
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.09); /* Transparent Black */
+    backdrop-filter: blur(0.2px); /* Smooth Blur Effect */
+    color: white;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;   
+}
+
+.navbar a:hover {
+    color: rgb(201, 6, 6);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.logo a{
+    font-size: 24px;
+}
+.logo a:hover{
+    color: black;
+}
+
+.nav-links {
+    padding: 10px;
+    display: flex;
+}
+.card{
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden; 
+    /* padding: 30px; */
+    
+}
+
+.card:hover{
+    padding: 10px;
+    box-shadow: 0px 0px 30px 10px rgba(92, 91, 91, 0.8);
+    animation-duration: 0.8s;
+}
+
+  
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+    .head-text{
+        padding: 15vh;
+        padding-right: 10vh;
+    }
+}

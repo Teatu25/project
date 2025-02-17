@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple-Style Cover Flow</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .coverflow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coverflow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 800px;
+            height: 400px;
+            perspective: 1200px;
+        }
+
+        .card {
+            position: absolute;
+            width: 250px;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="coverflow-container">
+        <button class="nav-btn prev-btn" onclick="navigate(-1)">&#10094;</button>
+
+        <div class="coverflow" id="coverflow">
+            <div class="card"><img src="https://source.unsplash.com/250x350/?tech" alt="1"></div>
+            <div class="card"><img src="https://source.unsplash.com/250x350/?gaming" alt="2"></div>
+            <div class="card"><img src="https://source.unsplash.com/250x350/?fashion" alt="3"></div>
+            <div class="card"><img src="https://source.unsplash.com/250x350/?travel" alt="4"></div>
+            <div class="card"><img src="https://source.unsplash.com/250x350/?food" alt="5"></div>
+        </div>
+
+        <button class="nav-btn next-btn" onclick="navigate(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let currentIndex = 2; // Center item
+        const cards = document.querySelectorAll(".card");
+
+        function updateCoverflow() {
+            cards.forEach((card, i) => {
+                let offset = i - currentIndex;
+
+                if (offset === 0) {
+                    card.style.transform = "translateX(0) scale(1) rotateY(0deg)";
+                    card.style.zIndex = "10";
+                    card.style.opacity = "1";
+                } else if (offset === 1) {
+                    card.style.transform = "translateX(150px) scale(0.8) rotateY(-20deg)";
+                    card.style.zIndex = "5";
+                    card.style.opacity = "0.6";
+                } else if (offset === -1) {
+                    card.style.transform = "translateX(-150px) scale(0.8) rotateY(20deg)";
+                    card.style.zIndex = "5";
+                    card.style.opacity = "0.6";
+                } else if (offset > 1) {
+                    card.style.transform = "translateX(250px) scale(0.6) rotateY(-30deg)";
+                    card.style.zIndex = "1";
+                    card.style.opacity = "0.4";
+                } else if (offset < -1) {
+                    card.style.transform = "translateX(-250px) scale(0.6) rotateY(30deg)";
+                    card.style.zIndex = "1";
+                    card.style.opacity = "0.4";
+                }
+            });
+        }
+
+        function navigate(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex > cards.length - 1) currentIndex = cards.length - 1;
+
+            updateCoverflow();
+        }
+
+        updateCoverflow();
+    </script>
+
+</body>
+</html>

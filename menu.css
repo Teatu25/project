@@ -1,0 +1,149 @@
+main{
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+#navigation{
+    position: fixed;
+    width: 100%;
+}
+.logo a{
+    font-size: 24px;
+}
+.logo a:hover{
+    color: black;
+}
+.navbar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5px;
+    background-color:  rgb(3, 3, 3);
+    backdrop-filter: blur(0.2px);
+    color: white;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;   
+}
+
+.navbar a:hover {
+    color: rgb(255, 0, 0);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.nav-links {
+    display: flex;
+    padding-bottom: 10px;
+}
+.menu-intro{
+    position: absolute;
+    padding: 9vh;
+    padding-left:50vh;
+    color: rgb(255, 255, 255);
+    padding-right: 50vh;
+    text-align: center;
+}
+
+.menu-intro p{
+    font-size: large;
+}
+
+
+.menu-nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    background-color:orange; /* Transparent Black */
+    backdrop-filter: blur(0.2px);
+    color: white;
+    
+}
+
+.menu-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    margin-right: 10vh;
+    font-size: 18px;
+    transition: 0.3s; 
+}
+
+
+.back{
+    background-image: url('/image/Designer.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%; /* Half of the viewport width */
+    height: 30vh; /* Half of the viewport height */
+}
+
+.menu-links{
+    display: flex;
+}
+
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.card:hover{
+    padding: 2px;
+    box-shadow: 0px 0px 30px 10px rgb(173, 113, 1);
+    animation-duration: 3s;
+}
+.card-body{
+    height: 50%;
+    width: 100%;   
+    padding: 30px; 
+}
+.menu-text{
+    padding-top: 9vh;
+}
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+    .menu-text{
+        padding: 12vh;
+
+    }
+    .menu-text p{
+        padding: 0vh;
+    }
+   
+}
