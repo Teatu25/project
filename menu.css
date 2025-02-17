@@ -85,7 +85,7 @@ main{
 
 
 .back{
-    background-image: url('/image/Designer.png');
+    background-image: url('Designer.png');
     background-size: cover;
     background-position: center;
     width: 100%; /* Half of the viewport width */
